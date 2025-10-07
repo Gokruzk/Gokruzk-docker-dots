@@ -8,7 +8,10 @@ A collection of Docker configurations for local development environments, featur
 
 ```
 gokruzk-docker-dots/
-├── mysql/
+├── mssql/
+│   ├── docker-compose.yml
+│   └── env_template.txt
+└── mysql/
 │   ├── docker-compose.yml
 │   └── env_template.txt
 └── postgres/
@@ -33,28 +36,12 @@ cd gokruzk-docker-dots
 
 Choose your database stack and follow the steps below:
 
-#### 🐬 MySQL + phpMyAdmin
-
 ```bash
 cd mysql
 cp env_template.txt .env
 # Edit .env with your preferred credentials and configuration
 docker-compose up -d
 ```
-
-**Access phpMyAdmin:** http://localhost:8081
-
-#### 🐘 PostgreSQL + pgAdmin
-
-```bash
-cd postgres
-cp env_template.txt .env
-# Edit .env with your preferred credentials and configuration
-docker-compose up -d
-```
-
-**Access pgAdmin:** http://localhost:8080
-
 ---
 
 ## 🛠️ Management Commands
