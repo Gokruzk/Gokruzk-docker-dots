@@ -1,78 +1,90 @@
 # 🐳 gokruzk-docker-dots
 
-A collection of Docker configurations for local development.  
-Includes ready-to-use stacks for **MySQL + phpMyAdmin** and **PostgreSQL + pgAdmin**.
+A collection of Docker configurations for local development environments, featuring ready-to-use stacks for **MySQL + phpMyAdmin** and **PostgreSQL + pgAdmin**.
 
 ---
 
 ## 📂 Project Structure
 
+```
 gokruzk-docker-dots/
-│
 ├── mysql/
-│ ├── docker-compose.yml
-│ └── env_template.txt
-│
+│   ├── docker-compose.yml
+│   └── env_template.txt
 └── postgres/
-├── docker-compose.yml
-└── env_template.txt
-
-yaml
-Copy code
+    ├── docker-compose.yml
+    └── env_template.txt
+```
 
 Each folder contains a `docker-compose.yml` file and an environment variable template (`env_template.txt`).
 
 ---
 
-## ⚙️ How to Use
+## 🚀 Quick Start
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/gokruzk-docker-dots.git
+git clone https://github.com/Gokruzk/gokruzk-docker-dots.git
 cd gokruzk-docker-dots
-2️⃣ Configure Environment Variables
-Each stack includes an env_template.txt file.
-You must copy it and rename it to .env before starting the containers.
+```
 
-🐬 MySQL
-bash
-Copy code
+### Setup and Run
+
+Choose your database stack and follow the steps below:
+
+#### 🐬 MySQL + phpMyAdmin
+
+```bash
 cd mysql
 cp env_template.txt .env
-Then edit .env and update the values (user, password, ports, etc).
+# Edit .env with your preferred credentials and configuration
+docker-compose up -d
+```
 
-🐘 PostgreSQL
-bash
-Copy code
+**Access phpMyAdmin:** http://localhost:8081
+
+#### 🐘 PostgreSQL + pgAdmin
+
+```bash
 cd postgres
 cp env_template.txt .env
-Then edit .env and update the values.
-
-3️⃣ Run the Containers
-From the corresponding folder:
-
-🐬 MySQL + phpMyAdmin
-bash
-Copy code
-cd mysql
+# Edit .env with your preferred credentials and configuration
 docker-compose up -d
-phpMyAdmin → http://localhost:8081
+```
 
-🐘 PostgreSQL + pgAdmin
-bash
-Copy code
-cd postgres
-docker-compose up -d
-pgAdmin → http://localhost:8080
+**Access pgAdmin:** http://localhost:8080
 
-4️⃣ Stop and Remove Containers
-bash
-Copy code
+---
+
+## 🛠️ Management Commands
+
+### Stop Containers
+
+```bash
 docker-compose down
-To also remove persistent data volumes:
+```
 
-bash
-Copy code
+### Stop and Remove All Data
+
+To stop containers and remove persistent volumes:
+
+```bash
 docker-compose down -v
 ```
+
+---
+
+## 📝 Configuration
+
+Before starting any stack, you must configure the environment variables:
+
+1. Copy `env_template.txt` to `.env` in the respective folder
+2. Update the values according to your needs (usernames, passwords, ports, etc.)
+3. Save the file and run `docker-compose up -d`
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
