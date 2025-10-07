@@ -84,7 +84,3 @@ Before starting any stack, you must configure the environment variables:
 3. Save the file and run `docker-compose up -d`
 
 ---
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
